@@ -1,13 +1,11 @@
 class Song
   
   attr_accessor :name, :artist, :genre
- #class variables
  
   @@count = 0
-  @@artists = []
   @@genres = []
-  
-  #initialize phase
+  @@artists = []
+ 
 
   def initialize(name, artist, genre)
     @name = name
@@ -21,30 +19,15 @@ class Song
   def self.count
     @@count
   end
-
+  
+  def self.genres
+    @@genres.uniq
+  end
+  
   def self.artists
     @@artists.uniq
   end
-
-  def self.artist_count
-    artist_count = {}
-    @@artists.each do |artist|
-      if artist_count[artist]
-        artist_count[artist] += 1 
-      else
-        artist_count[artist] = 1
-      end
-    end
-    artist_count
-  end
   
-    def self.genres
-    @@genres.uniq
-  end
-    def self.genres
-    @@genres.uniq
-  end
-
   def self.genre_count
     genre_count = {}
     @@genres.each do |genre|
@@ -56,5 +39,19 @@ class Song
     end
     genre_count
   end
+  
+  def self.artist_count
+    artist_count = {}
+    @@artists.each do |artist|
+      if artist_count[artist]
+        artist_count[artist] += 1 
+      else
+        artist_count[artist] = 1
+      end
+    end
+    artist_count
+  end
+
+  
   
 end
